@@ -12,9 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+            iconTheme: IconThemeData(color: Colors.black),
+            backgroundColor: Color.fromARGB(255, 255, 255, 255),
+            titleTextStyle: TextStyle(color: Colors.black)),
+      ),
       debugShowCheckedModeBanner: false,
-      home: CustomerHomeScreen(),
+      home: const CustomerHomeScreen(),
     );
   }
 }
