@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:online_mall/widgets/fake_search.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,24 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Scaffold(
           //APPBAR
           appBar: AppBar(
-            title: Container(
-              height: 40,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.black, width: 1.4),
-                borderRadius: BorderRadius.circular(25),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(Icons.search),
-                  Text('What do you want?'),
-                  Container(
-                    decoration: BoxDecoration(color: const Color(0xFF4D9CB2)),
-                    child: Text('Search'),
-                  )
-                ],
-              ),
-            ),
+            title: const FakeSearch(),
             shadowColor: Theme.of(context).shadowColor,
             bottom: const TabBar(
               labelColor: Colors.black87,
