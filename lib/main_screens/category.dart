@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_mall/widgets/fake_search.dart';
 import 'package:online_mall/utilities/categ_list.dart';
+import 'package:online_mall/categories/men_categ.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -10,7 +11,7 @@ class CategoryScreen extends StatefulWidget {
 }
 
 class _CategoryScreenState extends State<CategoryScreen> {
-  int? selectedIndex;
+  int selectedIndex = 0;
   PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
@@ -43,6 +44,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
       width: MediaQuery.of(context).size.width * 0.8,
       height: MediaQuery.of(context).size.height * 0.9,
       child: PageView(
+        controller: pageController,
         onPageChanged: (value) {
           setState(() {
             selectedIndex = value;
@@ -50,9 +52,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         },
         scrollDirection: Axis.vertical,
         children: const [
-          Center(
-            child: Text('men'),
-          ),
+          MenCategory(),
           Center(
             child: Text('women'),
           ),
@@ -95,6 +95,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 setState(() {
                   selectedIndex = index;
                 });
+                pageController.jumpToPage(index);
               },
               child: Container(
                 height: 100,
