@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:online_mall/utilities/categ_list.dart';
 import 'package:online_mall/widgets/categ_widgets.dart';
 
-class MenCategory extends StatefulWidget {
-  const MenCategory({super.key});
+class WomenCategory extends StatefulWidget {
+  const WomenCategory({super.key});
 
   @override
-  State<MenCategory> createState() => _MenCategoryState();
+  State<WomenCategory> createState() => _WomenCategoryState();
 }
 
-class _MenCategoryState extends State<MenCategory> {
+class _WomenCategoryState extends State<WomenCategory> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,12 +24,12 @@ class _MenCategoryState extends State<MenCategory> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CategHeaderLabel(
-                  headerLabel: 'Men',
+                  headerLabel: 'Women',
                 ),
                 SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.75,
                     child: GridView.builder(
-                        itemCount: men.length,
+                        itemCount: women.length,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount:
@@ -38,10 +38,10 @@ class _MenCategoryState extends State<MenCategory> {
                                 childAspectRatio: 0.7),
                         itemBuilder: (context, index) {
                           return SubcategModel(
-                            mainCategName: 'Men',
-                            subCategName: men[index],
-                            assetName: 'images/men/men$index.jpg',
-                            subCategLabel: men[index],
+                            mainCategName: 'Women',
+                            subCategName: women[index],
+                            assetName: 'images/women/women$index.jpg',
+                            subCategLabel: women[index],
                           );
                         }))
               ],
@@ -53,7 +53,7 @@ class _MenCategoryState extends State<MenCategory> {
           bottom: 0,
           top: 80,
           child: SliderBar(
-            mainCategName: 'men',
+            mainCategName: 'women',
           ),
         )
       ],

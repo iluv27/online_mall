@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:online_mall/utilities/categ_list.dart';
 import 'package:online_mall/widgets/categ_widgets.dart';
 
-class MenCategory extends StatefulWidget {
-  const MenCategory({super.key});
+class AccessoriesCategory extends StatefulWidget {
+  const AccessoriesCategory({super.key});
 
   @override
-  State<MenCategory> createState() => _MenCategoryState();
+  State<AccessoriesCategory> createState() => _AccessoriesCategoryState();
 }
 
-class _MenCategoryState extends State<MenCategory> {
+class _AccessoriesCategoryState extends State<AccessoriesCategory> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -24,12 +24,12 @@ class _MenCategoryState extends State<MenCategory> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CategHeaderLabel(
-                  headerLabel: 'Men',
+                  headerLabel: 'Accessories',
                 ),
                 SizedBox(
                     height: MediaQuery.sizeOf(context).height * 0.75,
                     child: GridView.builder(
-                        itemCount: men.length,
+                        itemCount: accessories.length,
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount:
@@ -38,10 +38,11 @@ class _MenCategoryState extends State<MenCategory> {
                                 childAspectRatio: 0.7),
                         itemBuilder: (context, index) {
                           return SubcategModel(
-                            mainCategName: 'Men',
-                            subCategName: men[index],
-                            assetName: 'images/men/men$index.jpg',
-                            subCategLabel: men[index],
+                            mainCategName: 'Accessories',
+                            subCategName: accessories[index],
+                            assetName:
+                                'images/accessories/accessories$index.jpg',
+                            subCategLabel: accessories[index],
                           );
                         }))
               ],
@@ -53,7 +54,7 @@ class _MenCategoryState extends State<MenCategory> {
           bottom: 0,
           top: 80,
           child: SliderBar(
-            mainCategName: 'men',
+            mainCategName: 'Accessories',
           ),
         )
       ],
