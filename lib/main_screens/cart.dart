@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:online_mall/main_screens/customer_home.dart';
 import 'package:online_mall/widgets/appBar_widget.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
 
+  @override
+  State<CartScreen> createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,32 +20,90 @@ class CartScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete_forever),
           ),
         ],
       ),
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Your Cart is Empty !',
-              style: TextStyle(fontSize: 32),
-            ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5)))),
-              child: const Text(
-                'Continue Shopping',
-                style: TextStyle(fontSize: 16),
+      body: Stack(children: [
+        // EMPTY CART & CONTINUE SHOPPING BTN
+        Align(
+          alignment: Alignment.center,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Your Cart is Empty !',
+                style: TextStyle(fontSize: 32),
               ),
-            )
-          ],
+              const SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) {
+                    return const CustomerHomeScreen();
+                  }));
+                },
+                style: ButtonStyle(
+                  padding: const MaterialStatePropertyAll(
+                      EdgeInsets.symmetric(vertical: 15, horizontal: 30)),
+                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30))),
+                ),
+                child: const Text(
+                  'Continue Shopping',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
+
+        // BOTTOM CART ITEMS
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Row(
+                  children: [
+                    Text(
+                      'Total: \$ ',
+                      style: TextStyle(fontSize: 18),
+                    ),
+                    Text(
+                      '00.00',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(const Color(0xFF4D9CB2)),
+                    padding: const MaterialStatePropertyAll(
+                        EdgeInsets.symmetric(vertical: 10, horizontal: 25)),
+                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30))),
+                  ),
+                  child: const Text(
+                    'CHECK OUT',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        )
+      ]),
     );
   }
 }

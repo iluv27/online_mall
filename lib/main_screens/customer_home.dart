@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_mall/main_screens/cart.dart';
+import 'package:online_mall/main_screens/profile.dart';
 import 'package:online_mall/main_screens/stores.dart';
 import 'home.dart';
 import 'category.dart';
@@ -19,9 +20,7 @@ class _CustomerHomeScreenState extends State<CustomerHomeScreen> {
     const CategoryScreen(),
     const StoresScreen(),
     const CartScreen(),
-    const Center(
-      child: Text('Profile'),
-    ),
+    const ProfileScreen(),
   ];
 
   @override
