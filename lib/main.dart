@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_screens/customer_home.dart';
+import 'package:online_mall/main_screens/supplier_home.dart';
 
 void main(List<String> args) {
   runApp(
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             titleTextStyle: TextStyle(color: Colors.black)),
       ),
       debugShowCheckedModeBanner: false,
-      home: const CustomerHomeScreen(),
+      home: const SupplierHomeScreen(),
     );
   }
 }
