@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_mall/main_screens/customer_home.dart';
 import 'package:online_mall/widgets/appBar_widget.dart';
+import 'package:online_mall/widgets/yelllow_button.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -84,20 +85,11 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ],
                 ),
-                ElevatedButton(
+                YellowButton(
                   onPressed: () {},
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xFF4D9CB2)),
-                    padding: const MaterialStatePropertyAll(
-                        EdgeInsets.symmetric(vertical: 10, horizontal: 25)),
-                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30))),
-                  ),
-                  child: const Text(
-                    'CHECK OUT',
-                    style: TextStyle(fontSize: 16),
-                  ),
+                  label: 'CHECK OUT',
+                  padding: const MaterialStatePropertyAll(
+                      EdgeInsets.symmetric(vertical: 10, horizontal: 25)),
                 ),
               ],
             ),
