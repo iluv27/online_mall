@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_mall/dashboard_components/edit_business.dart';
+import 'package:online_mall/dashboard_components/manage_products.dart';
+import 'package:online_mall/dashboard_components/my_store.dart';
+import 'package:online_mall/dashboard_components/supp_balance.dart';
+import 'package:online_mall/dashboard_components/supp_statics.dart';
+import 'package:online_mall/dashboard_components/suppl_orders.dart';
 import 'package:online_mall/widgets/appBar_widget.dart';
 
 List<String> label = [
@@ -17,6 +23,15 @@ List<IconData> icons = [
   Icons.settings,
   Icons.attach_money,
   Icons.show_chart
+];
+
+List<Widget> pages = const [
+  MyStore(),
+  SupplierOrders(),
+  EditBusiness(),
+  ManageProducts(),
+  BalanceScreen(),
+  StaticsScreen(),
 ];
 
 class DashboardScreen extends StatelessWidget {
@@ -43,24 +58,31 @@ class DashboardScreen extends StatelessWidget {
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2, mainAxisSpacing: 40, crossAxisSpacing: 30),
             itemBuilder: (context, index) {
-              return Card(
-                color: Colors.blueGrey.withOpacity(0.7),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Icon(
-                      icons[index],
-                      size: 50,
-                      color: Colors.white,
-                    ),
-                    Text(
-                      label[index].toUpperCase(),
-                      style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white),
-                    )
-                  ],
+              return InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return pages[index];
+                  }));
+                },
+                child: Card(
+                  color: Colors.blueGrey.withOpacity(0.7),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Icon(
+                        icons[index],
+                        size: 50,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        label[index].toUpperCase(),
+                        style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white),
+                      )
+                    ],
+                  ),
                 ),
               );
             }),

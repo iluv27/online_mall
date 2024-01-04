@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_mall/main_screens/customer_home.dart';
+import 'package:online_mall/main_screens/supplier_home.dart';
 import 'package:online_mall/main_screens/welcome_screen.dart';
 
 void main(List<String> args) {
@@ -21,7 +23,12 @@ class MyApp extends StatelessWidget {
             titleTextStyle: TextStyle(color: Colors.black)),
       ),
       debugShowCheckedModeBanner: false,
-      home: const WelcomeScreen(),
+      initialRoute: '/welcome_screen',
+      routes: {
+        '/welcome_screen': (context) => const WelcomeScreen(),
+        '/supplier_home': (context) => const SupplierHomeScreen(),
+        '/customer_home': (context) => const CustomerHomeScreen()
+      },
     );
   }
 }

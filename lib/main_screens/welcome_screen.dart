@@ -85,7 +85,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                             ),
                             YellowButton(
                               label: 'Login',
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushReplacementNamed(
+                                    context, '/supplier_home');
+                              },
                               padding: const MaterialStatePropertyAll(
                                   EdgeInsets.symmetric(
                                       vertical: 1, horizontal: 25)),
@@ -124,7 +127,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       children: [
                         YellowButton(
                           label: 'Login',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/customer_home');
+                          },
                           padding: const MaterialStatePropertyAll(
                               EdgeInsets.symmetric(
                                   vertical: 1, horizontal: 25)),
