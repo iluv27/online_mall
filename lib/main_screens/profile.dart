@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:online_mall/customer_screens/customer_orders.dart';
+import 'package:online_mall/customer_screens/wishlist.dart';
+import 'package:online_mall/main_screens/cart.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -79,60 +82,87 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Container(
-                            height: 65,
-                            width: MediaQuery.sizeOf(context).width * 0.25,
-                            decoration: const BoxDecoration(
-                              color: Colors.black54,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(50),
-                                bottomLeft: Radius.circular(50),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          const CartScreen())));
+                            },
+                            child: Container(
+                              height: 65,
+                              width: MediaQuery.sizeOf(context).width * 0.25,
+                              decoration: const BoxDecoration(
+                                color: Colors.black54,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(50),
+                                  bottomLeft: Radius.circular(50),
+                                ),
                               ),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'Cart',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 65,
-                            width: MediaQuery.sizeOf(context).width * 0.25,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF4D9CB2),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'Orders',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
+                              child: const Center(
+                                child: Text(
+                                  'Cart',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),
                           ),
-                          Container(
-                            height: 65,
-                            width: MediaQuery.sizeOf(context).width * 0.25,
-                            decoration: const BoxDecoration(
-                              color: Colors.black54,
-                              borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(50),
-                                bottomRight: Radius.circular(50),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          const CustomerOrders())));
+                            },
+                            child: Container(
+                              height: 65,
+                              width: MediaQuery.sizeOf(context).width * 0.25,
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF4D9CB2),
                               ),
-                            ),
-                            child: const Center(
-                              child: Text(
-                                'Wishlist',
-                                style: TextStyle(
+                              child: const Center(
+                                child: Text(
+                                  'Orders',
+                                  style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 16,
-                                    fontWeight: FontWeight.bold),
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          const Wishlist())));
+                            },
+                            child: Container(
+                              height: 65,
+                              width: MediaQuery.sizeOf(context).width * 0.25,
+                              decoration: const BoxDecoration(
+                                color: Colors.black54,
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(50),
+                                  bottomRight: Radius.circular(50),
+                                ),
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  'Wishlist',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           ),

@@ -137,7 +137,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                         YellowButton(
                           label: 'Sign up',
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/customer_signup');
+                          },
                           padding: const MaterialStatePropertyAll(
                               EdgeInsets.symmetric(
                                   vertical: 1, horizontal: 25)),
